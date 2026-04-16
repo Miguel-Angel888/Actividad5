@@ -171,6 +171,22 @@ public class Empresa {
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
 
         }
+    public String mostrarInfoEmpleadoMayorSalario(){
+        String mensaje = "";
+        float salarioFinal = 0;
+        Optional<Empleado> empleadoMayorSalario = conocerEmpleadoMayorSalario();
+        if(empleadoMayorSalario.isEmpty()){
+            return "No hay empleados registrados";
+        }
+        if(empleadoMayorSalario.isPresent()){
+           Empleado empleadoAux =  empleadoMayorSalario.get();
+           salarioFinal = empleadoAux.calcularSalarioBruto();
+           mensaje = "Nombre empleado: "+empleadoAux.getNombre()+"\n" +
+                    "Documento: "+empleadoAux.getDocumento()+"\n" +
+                    "Salario del empleado: "+salarioFinal;
+        }
+        return mensaje;
+    }
     public double calcularNominaTotal(){
         return listaEmpleados.stream().mapToDouble(Empleado::calcularSalarioBruto).sum();
     }

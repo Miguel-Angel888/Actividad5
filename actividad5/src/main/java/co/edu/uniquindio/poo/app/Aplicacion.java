@@ -47,6 +47,8 @@ public class Aplicacion {
                         mensaje = empresa.buscarEmpleadoPorDocumento(documento);
                         JOptionPane.showMessageDialog(null,mensaje);
                         break;
+               case 6:  mensaje = empresa.mostrarInfoEmpleadoMayorSalario();
+                        JOptionPane.showMessageDialog(null,mensaje);
            }
         }
     }
