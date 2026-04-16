@@ -10,6 +10,12 @@ public class EmpleadoTemporal extends Empleado{
         this.diasTrabajados = diasTrabajados;
         this.valorDia = valorDia;
     }
+    public EmpleadoTemporal(String nombre,String documento,float salarioBase){
+        super(nombre,documento,salarioBase);
+        this.nombre = nombre;
+        this.documento = documento;
+        this.salarioBase = salarioBase;
+    }
 
     public int getDiasTrabajados() {
         return diasTrabajados;

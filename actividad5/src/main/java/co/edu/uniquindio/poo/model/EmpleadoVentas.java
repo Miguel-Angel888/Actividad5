@@ -13,6 +13,12 @@ public class EmpleadoVentas extends Empleado{
         this.totalVentas = totalVentas;
         this.porcentajeComision = porcentajeComision;
     }
+    public EmpleadoVentas(String nombre,String documento,float salarioBase){
+        super(nombre,documento,salarioBase);
+        this.nombre = nombre;
+        this.documento = documento;
+        this.salarioBase = salarioBase;
+    }
     public float getTotalVentas(){
         return totalVentas;
     }

@@ -102,6 +102,14 @@ public abstract class Empleado {
                 (descuentoSalud+descuentoPension),
                 salarioBase);
     }
+    public boolean buscarEmpleado(String docuemento){
+        if(this.documento.equalsIgnoreCase(docuemento)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 
 }

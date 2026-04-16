@@ -14,11 +14,12 @@ public class Empresa {
 
     public Empresa(String nombre, ArrayList<Empleado> listaEmpleados) {
         this.nombre = nombre;
-        this.listaEmpleados = listaEmpleados;
+        this.listaEmpleados = new ArrayList<>();
     }
 
     public Empresa(String nombre) {
         this.nombre = nombre;
+        this.listaEmpleados = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -37,6 +38,7 @@ public class Empresa {
         this.listaEmpleados = listaEmpleados;
     }
 
+    //Registro de empleados
     public String registrarEmpleado(Empleado empleado){
         String respuesta = "";
 
@@ -51,11 +53,68 @@ public class Empresa {
         return respuesta;
 
     }
+    public String registrarEmpleadoPlanta(String nombre,String documento,float salarioBase){
+        if(listaEmpleados != null) {
+
+            for (Empleado empleadoAux : listaEmpleados) {
+                if (empleadoAux.buscarEmpleado(documento)) {
+                    return "El empleado de planta ya esta registrado ";
+                }
+            }
+        }
+        Empleado empleado = new EmpleadoPlanta( nombre, documento, salarioBase);
+        listaEmpleados.add(empleado);
+       return "El empleado de planta fue creado exitosamente";
+    }
+    public String registrarEmpleadoVentas(String nombre,String documento,float salarioBase){
+        if(listaEmpleados != null) {
+
+            for (Empleado empleadoAux : listaEmpleados) {
+                if (empleadoAux.buscarEmpleado(documento)) {
+                    return "El empleado de ventas ya esta registrado ";
+                }
+            }
+        }
+        Empleado empleado = new EmpleadoVentas( nombre, documento, salarioBase);
+        listaEmpleados.add(empleado);
+        return "El empleado de ventas fue creado exitosamente";
+    }
+    public String registrarEmpleadoTemporal(String nombre,String documento,float salarioBase){
+        if(listaEmpleados != null) {
+
+            for (Empleado empleadoAux : listaEmpleados) {
+                if (empleadoAux.buscarEmpleado(documento)) {
+                    return "El empleado temporal ya esta registrado ";
+                }
+            }
+        }
+        Empleado empleado = new EmpleadoTemporal( nombre, documento, salarioBase);
+        listaEmpleados.add(empleado);
+        return "El empleado temporal fue creado exitosamente";
+    }
 
 
     private Optional<Empleado> buscarEmpleado(String documento) {
         return listaEmpleados.stream().
                 filter(empleado -> empleado.getDocumento().equalsIgnoreCase(documento)).findAny();
+    }
+    public String buscarEmpleadoPorDocumento(String docuemnto){
+       String infoEmpelado = "";
+        Optional<Empleado> empleado = buscarEmpleado((docuemnto));
+
+
+        if(empleado.isPresent()){
+            Empleado empleadoAux = listaEmpleados.stream().filter(
+                    (empleado1 -> empleado1.getDocumento().equals(docuemnto)))
+                    .findFirst().orElseThrow(() -> new RuntimeException("Empleado no encontrado"));
+            infoEmpelado = "Nombre empleado: "+empleadoAux.getNombre()+"\n" +
+                    "Documento: "+empleadoAux.getDocumento()+"\n" +
+                    "Salario base: "+empleadoAux.getSalarioBase();
+        }
+        else {
+            return "Empleado no encontrado";
+        }
+        return infoEmpelado;
     }
     public String listarEmpleadosTipoPlanta(){
         String resultado = "";
@@ -98,6 +157,15 @@ public class Empresa {
             resultado = "No hay empleados temporales registrados";
         }
         return resultado;
+    }
+    public String listarTodosLosEmpleado(){
+        String listaEmpleadosPlanta = listarEmpleadosTipoPlanta();
+        String listaEmpleadosVentas = listarEmpleadosTipoVentas();
+        String listaEmpleadosTemporales = listarEmpleadosTipoTemporales();
+        String listaFinal ="Lista empleados tipo planta: \n"+listaEmpleadosPlanta+
+                "\nLista empleados tipo ventas: \n"+listaEmpleadosVentas+
+                "\nLista emplaeados tipo temporales: \n"+listaEmpleadosTemporales;
+       return listaFinal;
     }
     public Optional<Empleado> conocerEmpleadoMayorSalario(){
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
