@@ -19,6 +19,11 @@ public abstract class Empleado {
         this.descuentoSalud = descuentoSalud;
         this.descuentoPension = descuentoPension;
     }
+    public Empleado(String nombre,String documento,float salarioBase){
+        this.nombre = nombre;
+        this.documento = documento;
+        this.salarioBase = salarioBase;
+    }
 
     public String getNombre() {
         return nombre;

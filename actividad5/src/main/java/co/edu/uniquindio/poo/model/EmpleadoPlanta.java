@@ -15,6 +15,12 @@ public class EmpleadoPlanta extends Empleado{
         this.valorHoraExtra = valorHoraExtra;
         this.auxTransporte = auxTransporte;
     }
+    public EmpleadoPlanta(String nombre,String documento,float salarioBase){
+        super(nombre,documento,salarioBase);
+        this.nombre = nombre;
+        this.documento = documento;
+        this.salarioBase = salarioBase;
+    }
 
     public String getCargo() {
         return cargo;
