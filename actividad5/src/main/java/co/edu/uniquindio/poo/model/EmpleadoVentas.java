@@ -18,7 +18,12 @@ public class EmpleadoVentas extends Empleado{
         this.nombre = nombre;
         this.documento = documento;
         this.salarioBase = salarioBase;
+
     }
+    public EmpleadoVentas(String nombre){
+        super(nombre);
+    }
+
     public float getTotalVentas(){
         return totalVentas;
     }
@@ -32,11 +37,17 @@ public class EmpleadoVentas extends Empleado{
         this.porcentajeComision = porcentajeComision;
     }
     @Override
-    public float calcularSalarioBruto(){
+    public float calcularSalarioNeto(){
         int bonificacion = saberCategoriaEmpleado();
         float comisionFinal = porcentajeComision*totalVentas;
         float salarioFinal = (salarioBase*bonificacion)/100;
         return salarioFinal+comisionFinal;
+    }
+    @Override
+    public float calcularSalarioBruto(){
+        float comisionVentas = porcentajeComision*totalVentas/100;
+        float salarioBrutoFinal = salarioBase+comisionVentas;
+        return salarioBrutoFinal;
     }
     public int saberCategoriaEmpleado(){
         String categoria = categoriaEmpleado.name();

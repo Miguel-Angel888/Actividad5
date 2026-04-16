@@ -20,6 +20,7 @@ public class EmpleadoPlanta extends Empleado{
         this.nombre = nombre;
         this.documento = documento;
         this.salarioBase = salarioBase;
+
     }
 
     public String getCargo() {
@@ -55,7 +56,7 @@ public class EmpleadoPlanta extends Empleado{
     }
 
     @Override
-    public float calcularSalarioBruto(){
+    public float calcularSalarioNeto(){
         int bonificacion = saberCategoriaEmpleado();
         float salarioBaseFinal = (salarioBase*bonificacion)/100;
         float valorHorasExtras = horasExtra*valorHoraExtra;

@@ -23,6 +23,10 @@ public abstract class Empleado {
         this.nombre = nombre;
         this.documento = documento;
         this.salarioBase = salarioBase;
+
+    }
+    public Empleado (String documento){
+        this.documento = documento;
     }
 
     public String getNombre() {
@@ -81,14 +85,14 @@ public abstract class Empleado {
         this.descuentoPension = descuentoPension;
     }
 
-    public abstract float calcularSalarioBruto();
+    public abstract float calcularSalarioNeto();
     public float calcularBonificacionCategoria(){
         return 0;
     }
     public float calcularDescuentos(){
         return 0;
     }
-    public float calcularSalarioNeto(){
+    public float calcularSalarioBruto(){
         return 0;
     }
     public String mostrarInformacion(){

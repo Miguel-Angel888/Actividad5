@@ -167,6 +167,13 @@ public class Empresa {
                 "\nLista emplaeados tipo temporales: \n"+listaEmpleadosTemporales;
        return listaFinal;
     }
+    public ArrayList<Empleado> listarTodosLosEmpleadosSimple(){
+        ArrayList<Empleado> listaEmp = new ArrayList<>();
+        for(Empleado empleado:listaEmpleados){
+            listaEmp.add(empleado);
+        }
+        return listaEmp;
+    }
     public Optional<Empleado> conocerEmpleadoMayorSalario(){
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
 
@@ -198,6 +205,17 @@ public class Empresa {
             resultado += "("+numerador+"). "+empleadoAux.getNombre()+"\n"+empleadoAux.generarResumenPago();
         }
         return resultado;
+    }
+
+    public ArrayList<Empleado> obtenerEmpleadosMayorSalario( float valor){
+        ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
+
+        for(Empleado empleado: listaEmpleados){
+            if(empleado.calcularSalarioNeto() > valor){
+                listaEmpleadosMayorSalario.add(empleado);
+            }
+        }
+        return listaEmpleadosMayorSalario;
     }
 
 }

@@ -15,6 +15,7 @@ public class EmpleadoTemporal extends Empleado{
         this.nombre = nombre;
         this.documento = documento;
         this.salarioBase = salarioBase;
+
     }
 
     public int getDiasTrabajados() {
@@ -33,7 +34,7 @@ public class EmpleadoTemporal extends Empleado{
         this.valorDia = valorDia;
     }
     @Override
-    public float calcularSalarioBruto(){
+    public float calcularSalarioNeto(){
         int bonificacion = saberCategoriaEmpleado();
 
         float pagoDiasTrabajados = diasTrabajados*valorDia;
@@ -53,5 +54,9 @@ public class EmpleadoTemporal extends Empleado{
             bonificacion = 15;
         }
         return bonificacion;
+    }
+    public float calcularSalarioNetof(){
+        float pagoDiasTrabajados = diasTrabajados*valorDia;
+        return salarioBase+pagoDiasTrabajados;
     }
 }
