@@ -49,6 +49,11 @@ public class Aplicacion {
                         break;
                case 6:  mensaje = empresa.mostrarInfoEmpleadoMayorSalario();
                         JOptionPane.showMessageDialog(null,mensaje);
+                        break;
+               case 7: //mensaje = empresa.calcularNominaTotal();
+                   // JOptionPane.showMessageDialog(null,mensaje);
+                    break;
+               case 8: salida = true;
            }
         }
     }
