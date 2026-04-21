@@ -27,7 +27,7 @@ public class VerificarBonificacionEmplJunior {
     public void verificarBonificacionEmpJunior(){
     LOG.info("Inicio del test ");
 
-    Empleado empleadoPlanta = new EmpleadoPlanta(null,null,0);
+    Empleado empleadoPlanta = new EmpleadoPlanta("x","x",0,CategoriaEmpleado.JUNIOR);
     int bonificacion = empleadoPlanta.calcularBonificacionCategoria();
 
     assertNotEquals(0,bonificacion);

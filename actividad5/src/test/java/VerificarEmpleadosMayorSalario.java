@@ -24,8 +24,7 @@ public class VerificarEmpleadosMayorSalario {
     private static final Logger LOG = Logger.getLogger(VerificacionEmpleadosTest.class.getName());
 
     /*
-    * Verificar que el método empleadosConSalarioMayorA(valor) de la clase Empresa retorne exactamente la lista de
-    * empleados cuyo salario neto es mayor al valor indicado, manteniendo el orden de registro.
+    * Verificar que la bonificación de un empleado JUNIOR sea mayor que 0.
     * */
 
     @Test

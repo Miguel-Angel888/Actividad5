@@ -23,9 +23,9 @@ public class EmpleadoPlanta extends Empleado{
 
     }
 
-    public EmpleadoPlanta(String nombre, String documento, float salarioBase, CategoriaEmpleado categoriaEmpleado, String cargo) {
+    public EmpleadoPlanta(String nombre, String documento, float salarioBase, CategoriaEmpleado categoriaEmpleado) {
         super(nombre, documento, salarioBase, categoriaEmpleado);
-        this.cargo = cargo;
+
     }
 
     public String getCargo() {
@@ -64,7 +64,13 @@ public class EmpleadoPlanta extends Empleado{
     public float calcularSalarioNeto(){
 
         float valorHorasExtras = horasExtra*valorHoraExtra;
-        return salarioBase+valorHorasExtras+auxTransporte;
+        float salarioFinal = salarioBase+valorHorasExtras+auxTransporte;
+        salarioFinal = salarioFinal-descuentoPension;
+
+        if(salarioFinal < 0 ){
+            throw new IllegalArgumentException("El salario no puede ser negativo");
+        }
+        return salarioFinal;
     }
     public int saberCategoriaEmpleado(){
         String categoria = categoriaEmpleado.name();

@@ -93,8 +93,8 @@ public class Empresa {
         return "El empleado temporal fue creado exitosamente";
     }
 
-
-    private Optional<Empleado> buscarEmpleado(String documento) {
+    //Buscar empleados
+    public Optional<Empleado> buscarEmpleado(String documento) {
         return listaEmpleados.stream().
                 filter(empleado -> empleado.getDocumento().equalsIgnoreCase(documento)).findAny();
     }
@@ -116,6 +116,17 @@ public class Empresa {
         }
         return infoEmpelado;
     }
+    public Empleado buscarEmpleadoDocumento(String documento){
+        Empleado empleado = null;
+        for(Empleado empleadoAux:listaEmpleados){
+            if(empleadoAux.getDocumento().equals(documento)){
+                empleado = empleadoAux;
+            }
+        }
+        return empleado;
+    }
+
+   //Listar los empleados
     public String listarEmpleadosTipoPlanta(){
         String resultado = "";
         int numerador = 0;
@@ -174,6 +185,8 @@ public class Empresa {
         }
         return listaEmp;
     }
+
+    //Conocer empleados mayor salario
     public Optional<Empleado> conocerEmpleadoMayorSalario(){
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
 
@@ -203,6 +216,17 @@ public class Empresa {
         }
         return mensaje;
     }
+    public ArrayList<Empleado> obtenerEmpleadosMayorSalario(float valor, ArrayList<Empleado> listaEmpleados){
+        ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
+
+        for(Empleado empleado: this.listaEmpleados){
+            if(empleado.calcularSalarioNeto() > valor){
+                listaEmpleadosMayorSalario.add(empleado);
+            }
+        }
+        return listaEmpleadosMayorSalario;
+    }
+
     public double calcularNominaTotal(){
         return listaEmpleados.stream().mapToDouble(Empleado::calcularSalarioBruto).sum();
     }
@@ -214,17 +238,6 @@ public class Empresa {
             resultado += "("+numerador+"). "+empleadoAux.getNombre()+"\n"+empleadoAux.generarResumenPago();
         }
         return resultado;
-    }
-
-    public ArrayList<Empleado> obtenerEmpleadosMayorSalario(float valor, ArrayList<Empleado> listaEmpleados){
-        ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
-
-        for(Empleado empleado: this.listaEmpleados){
-            if(empleado.calcularSalarioNeto() > valor){
-                listaEmpleadosMayorSalario.add(empleado);
-            }
-        }
-        return listaEmpleadosMayorSalario;
     }
 
 }
