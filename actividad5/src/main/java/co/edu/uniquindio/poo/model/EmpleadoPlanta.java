@@ -23,6 +23,11 @@ public class EmpleadoPlanta extends Empleado{
 
     }
 
+    public EmpleadoPlanta(String nombre, String documento, float salarioBase, CategoriaEmpleado categoriaEmpleado, String cargo) {
+        super(nombre, documento, salarioBase, categoriaEmpleado);
+        this.cargo = cargo;
+    }
+
     public String getCargo() {
         return cargo;
     }
@@ -57,10 +62,9 @@ public class EmpleadoPlanta extends Empleado{
 
     @Override
     public float calcularSalarioNeto(){
-        int bonificacion = saberCategoriaEmpleado();
-        float salarioBaseFinal = (salarioBase*bonificacion)/100;
+
         float valorHorasExtras = horasExtra*valorHoraExtra;
-        return salarioBaseFinal+valorHorasExtras+auxTransporte;
+        return salarioBase+valorHorasExtras+auxTransporte;
     }
     public int saberCategoriaEmpleado(){
         String categoria = categoriaEmpleado.name();

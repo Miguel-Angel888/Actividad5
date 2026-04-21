@@ -7,6 +7,7 @@
  */
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -30,6 +31,26 @@ public class VerificarEmpleadosMayorSalario {
     @Test
     public void obtenerEmpleadosMayorSalario(){
         LOG.info("Inicio del test");
-        
+
+
+        Empleado emplePlanta = new EmpleadoPlanta(null,null,15000);
+        Empleado empleTemporal = new EmpleadoTemporal(null,null,10000);
+        Empleado empleVentas = new EmpleadoVentas(null,null,20000);
+
+        ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+        listaEmpleados.add(emplePlanta);
+        listaEmpleados.add(empleTemporal);
+        listaEmpleados.add(empleVentas);
+
+        Empresa empresa = new Empresa(null,listaEmpleados);
+        ArrayList<Empleado> empleadosRicos = empresa.conocerEmpleadosMayorSalario(15000,listaEmpleados);
+
+        ArrayList<Empleado> listaVerdadera = new ArrayList<>();
+        listaVerdadera.add(emplePlanta);
+        listaVerdadera.add(empleVentas);
+
+        assertIterableEquals(listaVerdadera,empleadosRicos);
+        LOG.info("Fin de la prueba ");
+
     }
 }

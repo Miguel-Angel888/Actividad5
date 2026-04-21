@@ -41,7 +41,7 @@ public class VerificacionEmpleadosTest {
 
         Empresa empresa = new Empresa("x", listaEmpleadosTest);
 
-        ArrayList<Empleado> listaPrueba = empresa.listarTodosLosEmpleadosSimple();
+        ArrayList<Empleado> listaPrueba = empresa.listarTodosLosEmpleadosSimple(listaEmpleadosTest);
 
         assertIterableEquals(listaEmpleadosTest, listaPrueba);
 

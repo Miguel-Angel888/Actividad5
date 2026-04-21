@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
+
+
 public abstract class Empleado {
     protected String nombre;
     protected String documento;
@@ -27,6 +29,13 @@ public abstract class Empleado {
     }
     public Empleado (String documento){
         this.documento = documento;
+    }
+
+    public Empleado(String nombre, String documento, float salarioBase, CategoriaEmpleado categoriaEmpleado) {
+        this.nombre = nombre;
+        this.documento = documento;
+        this.salarioBase = salarioBase;
+        this.categoriaEmpleado = categoriaEmpleado;
     }
 
     public String getNombre() {
@@ -86,8 +95,21 @@ public abstract class Empleado {
     }
 
     public abstract float calcularSalarioNeto();
-    public float calcularBonificacionCategoria(){
-        return 0;
+    public int calcularBonificacionCategoria(){
+            int bonificacion =0;
+        if(categoriaEmpleado == CategoriaEmpleado.JUNIOR ){
+        bonificacion = 5;
+        }
+        else if(categoriaEmpleado == CategoriaEmpleado.SEMI_SENIOR){
+            bonificacion = 10;
+        }
+        else if(categoriaEmpleado == CategoriaEmpleado.SENIOR){
+            bonificacion = 15;
+        }
+        else{
+            bonificacion = 0;
+        }
+        return bonificacion;
     }
     public float calcularDescuentos(){
         return 0;

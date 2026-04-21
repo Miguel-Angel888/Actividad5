@@ -38,10 +38,10 @@ public class EmpleadoVentas extends Empleado{
     }
     @Override
     public float calcularSalarioNeto(){
-        int bonificacion = saberCategoriaEmpleado();
+
         float comisionFinal = porcentajeComision*totalVentas;
-        float salarioFinal = (salarioBase*bonificacion)/100;
-        return salarioFinal+comisionFinal;
+
+        return salarioBase+comisionFinal;
     }
     @Override
     public float calcularSalarioBruto(){

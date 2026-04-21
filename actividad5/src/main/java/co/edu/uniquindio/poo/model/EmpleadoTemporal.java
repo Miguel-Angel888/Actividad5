@@ -35,11 +35,11 @@ public class EmpleadoTemporal extends Empleado{
     }
     @Override
     public float calcularSalarioNeto(){
-        int bonificacion = saberCategoriaEmpleado();
+
 
         float pagoDiasTrabajados = diasTrabajados*valorDia;
-        float salarioFinal = (salarioBase*bonificacion)/100;
-        return salarioFinal+pagoDiasTrabajados;
+
+        return salarioBase+pagoDiasTrabajados;
     }
     public int saberCategoriaEmpleado(){
         String categoria = categoriaEmpleado.name();

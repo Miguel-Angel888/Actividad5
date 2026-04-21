@@ -167,7 +167,7 @@ public class Empresa {
                 "\nLista emplaeados tipo temporales: \n"+listaEmpleadosTemporales;
        return listaFinal;
     }
-    public ArrayList<Empleado> listarTodosLosEmpleadosSimple(){
+    public ArrayList<Empleado> listarTodosLosEmpleadosSimple(ArrayList<Empleado> listaEmpleados){
         ArrayList<Empleado> listaEmp = new ArrayList<>();
         for(Empleado empleado:listaEmpleados){
             listaEmp.add(empleado);
@@ -178,6 +178,15 @@ public class Empresa {
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
 
         }
+    public ArrayList<Empleado> conocerEmpleadosMayorSalario(double salarioMinimo,ArrayList<Empleado> listaEmpleados){
+        ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
+        for(Empleado empleado: listaEmpleados){
+            if(empleado.getSalarioBase() >= salarioMinimo){
+                listaEmpleadosMayorSalario.add(empleado);
+            }
+        }
+        return listaEmpleadosMayorSalario;
+    }
     public String mostrarInfoEmpleadoMayorSalario(){
         String mensaje = "";
         float salarioFinal = 0;
@@ -207,10 +216,10 @@ public class Empresa {
         return resultado;
     }
 
-    public ArrayList<Empleado> obtenerEmpleadosMayorSalario( float valor){
+    public ArrayList<Empleado> obtenerEmpleadosMayorSalario(float valor, ArrayList<Empleado> listaEmpleados){
         ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
 
-        for(Empleado empleado: listaEmpleados){
+        for(Empleado empleado: this.listaEmpleados){
             if(empleado.calcularSalarioNeto() > valor){
                 listaEmpleadosMayorSalario.add(empleado);
             }
