@@ -191,6 +191,20 @@ public class Empresa {
         return listaEmpleados.stream().max(Comparator.comparingDouble(Empleado::getSalarioBase));
 
         }
+        public Empleado conocerEmpleadoMaximoSalario(ArrayList<Empleado> listaEmpleados){
+        float mayor = 0;
+        Empleado empleadoFinal = null;
+        for(Empleado empleadoAux:listaEmpleados){
+            if(empleadoAux.getSalarioBase() > mayor){
+                mayor = empleadoAux.getSalarioBase();
+                empleadoFinal = empleadoAux;
+            }
+        }
+        if(empleadoFinal == null){
+            throw new IllegalArgumentException("El empleado no esta registrado ");
+        }
+        return empleadoFinal;
+        }
     public ArrayList<Empleado> conocerEmpleadosMayorSalario(double salarioMinimo,ArrayList<Empleado> listaEmpleados){
         ArrayList<Empleado> listaEmpleadosMayorSalario = new ArrayList<>();
         for(Empleado empleado: listaEmpleados){
@@ -240,4 +254,17 @@ public class Empresa {
         return resultado;
     }
 
+    //Obeteer los empleados temporales que han trabajado mas de x horas
+    public ArrayList<Empleado> obtenerEmpleadosMaxHorasExtras(double horasRequeridas,ArrayList<Empleado> listaEmpleados){
+        ArrayList<Empleado> listaFinal = new ArrayList<>();
+
+        for(Empleado empleadoAux:listaEmpleados){
+            if(empleadoAux instanceof EmpleadoTemporal){
+                if(((EmpleadoTemporal) empleadoAux).getDiasTrabajados() >= horasRequeridas){
+                    listaFinal.add(empleadoAux);
+                }
+            }
+        }
+        return listaFinal;
+        }
 }

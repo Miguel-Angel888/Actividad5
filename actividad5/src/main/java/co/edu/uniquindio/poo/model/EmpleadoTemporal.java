@@ -5,7 +5,7 @@ public class EmpleadoTemporal extends Empleado{
     private float valorDia;
 
     public EmpleadoTemporal(String nombre, String documento, int edad, float salarioBase, CategoriaEmpleado categoriaEmpleado,
-                            float descuentoSalud, float descuentoPension, int diasTrabajados, float valorDia) {
+                            float descuentoSalud, float descuentoPension, Object o, int diasTrabajados, float valorDia, int i) {
         super(nombre, documento, edad, salarioBase, categoriaEmpleado, descuentoSalud, descuentoPension);
         this.diasTrabajados = diasTrabajados;
         this.valorDia = valorDia;
@@ -17,6 +17,12 @@ public class EmpleadoTemporal extends Empleado{
         this.salarioBase = salarioBase;
 
     }
+    public EmpleadoTemporal(String documento,int diasTrabajados){
+        super(documento);
+        this.diasTrabajados = diasTrabajados;;
+    }
+
+
 
     public int getDiasTrabajados() {
         return diasTrabajados;
@@ -59,4 +65,6 @@ public class EmpleadoTemporal extends Empleado{
         float pagoDiasTrabajados = diasTrabajados*valorDia;
         return salarioBase+pagoDiasTrabajados;
     }
+
+
 }

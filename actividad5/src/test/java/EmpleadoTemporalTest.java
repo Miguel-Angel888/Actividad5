@@ -7,7 +7,6 @@
  */
 
 
-import java.util.List;
 import java.util.logging.Logger;
 
 import co.edu.uniquindio.poo.model.CategoriaEmpleado;
@@ -33,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.*;
            LOG.info("Inicio del test de el alario neto de emplado temporal");
             Empresa empresa = new Empresa("x");
             Empleado empleado = new EmpleadoTemporal("x","x",0,10000,
-                    CategoriaEmpleado.JUNIOR,1000,2000,5,2000);
+                    CategoriaEmpleado.JUNIOR,1000,2000, null, 5,2000, 5000);
             float salarioNeto = empleado.calcularSalarioNeto();
             assertNotEquals(0,salarioNeto);
             LOG.info("Fin del test ");

@@ -30,7 +30,9 @@ public class VerificarSalarioNoNegativoTest {
         LOG.info("Inicio del test");
 
         Empleado emp = new EmpleadoPlanta(null,null,20,
-                10000,CategoriaEmpleado.JUNIOR,2000,2000,null,2,1000,5000);
+                10000,CategoriaEmpleado.JUNIOR,2000,
+                2000,null,2,1000,5000);
+
         float salarioEmpleado = emp.calcularSalarioNeto();
         assertTrue(salarioEmpleado >= 0,"El salario no puede ser negativo");
         LOG.info("Fin dle tes");
