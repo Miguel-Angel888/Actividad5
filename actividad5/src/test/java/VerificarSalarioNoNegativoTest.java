@@ -23,7 +23,7 @@ public class VerificarSalarioNoNegativoTest {
     private static final Logger LOG =Logger.getLogger(VerificarSalarioNoNegativoTest.class.getName());
 
     /*
-    * Verificar que el salario neto nunca sea negativo.
+    * (5).Verificar que el salario neto nunca sea negativo.
     * */
     @Test
     public void verificarSalarioNoNegativo(){

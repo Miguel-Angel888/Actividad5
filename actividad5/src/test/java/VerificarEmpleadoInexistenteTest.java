@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
      private static final Logger LOG = Logger.getLogger(VerificarEmpleadoInexistenteTest.class.getName());
 
      /*
-     * Verificar que la búsqueda de un empleado inexistente retorne null.
+     * (6).Verificar que la búsqueda de un empleado inexistente retorne null.
      * */
     @Test
     public void verificarEmpleadoInexistente(){

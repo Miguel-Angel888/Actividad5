@@ -25,16 +25,17 @@ import static org.junit.jupiter.api.Assertions.*;
         private static final Logger LOG = Logger.getLogger(EmpleadoTemporalTest.class.getName());
 
         /*
-        *Verificar que el salario neto de un empleado temporal no sea igual a 0.
+        *  (2).Verificar que el salario neto de un empleado temporal no sea igual a 0.
          * */
         @Test
     public void calcularSalarioNetoTest(){
            LOG.info("Inicio del test de el alario neto de emplado temporal");
             Empresa empresa = new Empresa("x");
             Empleado empleado = new EmpleadoTemporal("x","x",0,10000,
-                    CategoriaEmpleado.JUNIOR,1000,2000, null, 5,2000, 5000);
+                    CategoriaEmpleado.JUNIOR,1000,
+                    2000, null, 5,2000, 5000);
             float salarioNeto = empleado.calcularSalarioNeto();
             assertNotEquals(0,salarioNeto);
-            LOG.info("Fin del test ");
+            LOG.info("Fin del test, Resultado: "+salarioNeto);
     }
 }

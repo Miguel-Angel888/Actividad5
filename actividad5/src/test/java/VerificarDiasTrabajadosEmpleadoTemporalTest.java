@@ -24,6 +24,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */public class VerificarDiasTrabajadosEmpleadoTemporalTest {
      private static final Logger LOG = Logger.getLogger(VerificarDiasTrabajadosEmpleadoTemporalTest.class.getName());
 
+      /*(12).Verificar que el método que obtiene los
+                            empleados de planta que han trabajado mas de 100 horas es correcto.*/
+
    @Test
     public void verificarDiasTrabajadosMayor100(){
        LOG.info("Inicio del test");

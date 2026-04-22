@@ -23,7 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
  * Clase de pruebas unitarias para la aplicación
  */public class VerificarEmpleadoMayorSalario {
      private static final Logger LOG = Logger.getLogger(VerificarEmpleadosMayorSalario.class.getName());
-
+     /*(11).
+     * */
    @Test
    public void verificarEmpleadoMayorSalario(){
 

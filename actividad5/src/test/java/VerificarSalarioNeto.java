@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
      private static final Logger LOG = Logger.getLogger(VerificarSalarioNeto.class.getName());
 
      /*
-     * Verificar que el salario neto de un empleado temporal sea mayor a cero cuando los días trabajados y el valor día son válidos.
+     * (14).Verificar que el salario neto de un empleado temporal sea mayor a cero cuando los días trabajados y el valor día son válidos.
       */
      @Test
      public void verificarSalarioNetoEmpleadoTemporalMayorACero() {

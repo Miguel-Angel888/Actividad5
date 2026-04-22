@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */public class VerificarSalarioNetoMayorSalarioBaseTest {
      private static final Logger LOG = Logger.getLogger(VerificarSalarioNetoMayorSalarioBaseTest.class.getName());
 
-     /*Verificar que el método calcularSalarioNeto() de un empleado de planta sea mayor que su salario base.
+     /*(13).Verificar que el método calcularSalarioNeto() de un empleado de planta sea mayor que su salario base.
      *                     */
    @Test
    public void VerificarSalarioNetoMayorSalarioBase (){

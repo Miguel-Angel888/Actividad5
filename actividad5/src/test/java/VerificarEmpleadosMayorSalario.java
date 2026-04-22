@@ -24,14 +24,15 @@ public class VerificarEmpleadosMayorSalario {
     private static final Logger LOG = Logger.getLogger(VerificacionEmpleadosTest.class.getName());
 
     /*
-    * Verificar que la bonificación de un empleado JUNIOR sea mayor que 0.
+       (8).Verificar que el método empleadosConSalarioMayorA(valor) de la clase Empresa retorne exactamente la lista de
+       empleados cuyo salario neto es mayor al valor indicado, manteniendo el orden de registro.
     * */
 
     @Test
     public void obtenerEmpleadosMayorSalario(){
         LOG.info("Inicio del test");
 
-
+        double salarioMinimo = 15000;
         Empleado emplePlanta = new EmpleadoPlanta(null,null,15000);
         Empleado empleTemporal = new EmpleadoTemporal(null,null,10000);
         Empleado empleVentas = new EmpleadoVentas(null,null,20000);
@@ -42,7 +43,7 @@ public class VerificarEmpleadosMayorSalario {
         listaEmpleados.add(empleVentas);
 
         Empresa empresa = new Empresa(null,listaEmpleados);
-        ArrayList<Empleado> empleadosRicos = empresa.conocerEmpleadosMayorSalario(15000,listaEmpleados);
+        ArrayList<Empleado> empleadosRicos = empresa.conocerEmpleadosMayorSalario(salarioMinimo,listaEmpleados);
 
         ArrayList<Empleado> listaVerdadera = new ArrayList<>();
         listaVerdadera.add(emplePlanta);

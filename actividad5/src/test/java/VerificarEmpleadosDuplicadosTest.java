@@ -23,6 +23,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VerificarEmpleadosDuplicadosTest {
     private static final Logger LOG = Logger.getLogger(VerificarEmpleadosDuplicadosTest.class.getName());
 
+    /*
+    * (10).Validar que el sistema no
+    * permita agregar empleados duplicados con el mismo documento en la empresa.*/
     @Test
     public void verificarEmpleadosDuplicados(){
         LOG.info("Inicio del test");

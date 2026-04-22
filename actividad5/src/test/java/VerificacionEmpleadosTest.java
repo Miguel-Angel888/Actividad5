@@ -25,7 +25,7 @@ public class VerificacionEmpleadosTest {
     private static final Logger LOG = Logger.getLogger(VerificacionEmpleadosTest.class.getName());
 
     /*
-    Verificar que los empleados almacenados en la empresa sean los correctos.
+      (3).Verificar que los empleados almacenados en la empresa sean los correctos.
      */
     @Test
     public void verificarListaEmpleadosTest(){

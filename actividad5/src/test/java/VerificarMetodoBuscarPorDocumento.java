@@ -22,6 +22,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */public class VerificarMetodoBuscarPorDocumento {
      private static final Logger LOG = Logger.getLogger(VerificarMetodoBuscarPorDocumento.class.getName());
 
+     /*(9).Comprobar que el método buscarPorDocumento()
+                            retorne null cuando se busque un documento inexistente.*/
+
      @Test
     public void verificarBuscarPorDocumento(){
 
@@ -35,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.*;
          Empresa empresa = new Empresa(null,listaEmpleados);
          Optional<Empleado> empleadoEncontrado = empresa.buscarEmpleado(id);
 
-         assertTrue(empleadoEncontrado.isEmpty(),"El empleado no esta registrado");
+         assertTrue(empleadoEncontrado.isEmpty(),"El empleado esta registrado");
          LOG.info("Fin del test");
      }
 }

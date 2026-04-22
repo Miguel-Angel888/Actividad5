@@ -25,7 +25,7 @@ public class EmpleadoVentasTest {
     private static final Logger LOG = Logger.getLogger(EmpleadoVentas.class.getName());
 
     /*
-    *Verificar que el salario bruto de un empleado de ventas se calcule correctamente.
+    * (1).Verificar que el salario bruto de un empleado de ventas se calcule correctamente.
     * */
     @Test
     public void calcularSalarioBrutoTest(){
@@ -40,6 +40,6 @@ public class EmpleadoVentasTest {
                 CategoriaEmpleado.JUNIOR,1000,2000,5,10);
         float calculoSalarioBruto = empleado.calcularSalarioBruto();
         assertEquals(salarioBrutoFinal,calculoSalarioBruto,50);
-        LOG.info("Fin del test");
+        LOG.info("Fin del test, Resultado: "+salarioBrutoFinal);
     }
 }

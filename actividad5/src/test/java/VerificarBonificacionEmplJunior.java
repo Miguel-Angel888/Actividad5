@@ -23,6 +23,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VerificarBonificacionEmplJunior {
     private static final Logger LOG =  Logger.getLogger(VerificarBonificacionEmplJunior.class.getName());
 
+    /*
+    * (4).Verificar que la bonificación de un empleado JUNIOR sea mayor que 0.
+    * */
 @Test
     public void verificarBonificacionEmpJunior(){
     LOG.info("Inicio del test ");
@@ -31,6 +34,6 @@ public class VerificarBonificacionEmplJunior {
     int bonificacion = empleadoPlanta.calcularBonificacionCategoria();
 
     assertNotEquals(0,bonificacion);
-    LOG.info("Fin del test");
+    LOG.info("Fin del test, Resultado:"+bonificacion);
 }
 }
